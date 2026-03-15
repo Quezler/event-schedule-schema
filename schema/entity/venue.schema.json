@@ -1,18 +1,14 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://github.com/Alofoxx/furry-schedule-schema/schema/entity/venue.schema.json",
+  "$id": "https://github.com/FurryApp/event-schedule-schema/schema/entity/venue.schema.json",
   "title": "Venue",
   "type": "object",
-  "required": [
-    "id",
-    "name",
-    "address"
-  ],
+  "required": ["id", "displayName"],
   "properties": {
     "id": {
       "type": "string"
     },
-    "name": {
+    "displayName": {
       "type": "object",
       "patternProperties": {
         "^[a-z]{2}(-[A-Z]{2})?$": {
@@ -20,13 +16,8 @@
         }
       }
     },
-    "address": {
-      "type": "object",
-      "patternProperties": {
-        "^[a-z]{2}(-[A-Z]{2})?$": {
-          "type": "string"
-        }
-      }
+    "formattedAddress": {
+      "type": "string"
     },
     "x-meta": {
       "$ref": "../partials/x-meta.schema.json"

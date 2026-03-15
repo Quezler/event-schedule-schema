@@ -2,33 +2,39 @@
   "schemaVersion": "1.0.0",
   "updatedAt": "3030-07-01T12:00:00Z",
   "source": {
-    "name": "ConSchedulePro",
+    "displayName": "ConSchedulePro",
     "vendorId": "CSP-12345",
     "appVersion": "2.4.1",
     "lastModifiedBy": "Jane Doe",
     "lastModifiedAt": "3030-07-01T12:00:00Z"
   },
-  "convention": {
-    "id": "fuzzyTestCon3030",
-    "name": {
-      "en-US": "Fuzzy Test Con 3030"
+  "event": {
+    "id": "advanced-example",
+    "displayName": {
+      "en-US": "Advanced Example Convention"
     },
-    "location": {
-      "en-US": "Furtown Convention Center, Furville"
-    },
-    "startDate": "3030-08-01T00:00:00Z",
-    "endDate": "3030-08-03T23:59:59Z",
+    "formattedAddress": "123 Fur Ave, Furville, USA",
+    "startTime": "3030-08-01T00:00:00Z",
+    "endTime": "3030-08-03T23:59:59Z",
     "timezone": "America/New_York",
     "description": {
       "en-US": "A futuristic furry convention for all species!"
     },
-    "website": "https://fuzzytestcon.example.org",
-    "imageBannerUrl": "https://cdn.example.org/banners/fuzzycon3030.jpg"
+    "externalLinks": [
+      {
+        "displayName": {
+          "en-US": "Website"
+        },
+        "url": "https://fuzzytestcon.example.org"
+      }
+    ],
+    "imageThumbnailUrl": "https://cdn.example.org/thumbnails/advanced-example.jpg",
+    "imageBannerUrl": "https://cdn.example.org/banners/advanced-example.jpg"
   },
   "membershipLevels": [
     {
       "id": "attendee",
-      "name": {
+      "displayName": {
         "en-US": "Attendee"
       },
       "description": {
@@ -37,7 +43,7 @@
     },
     {
       "id": "sponsor",
-      "name": {
+      "displayName": {
         "en-US": "Sponsor"
       },
       "description": {
@@ -46,7 +52,7 @@
     },
     {
       "id": "superSponsor",
-      "name": {
+      "displayName": {
         "en-US": "Super Sponsor"
       },
       "description": {
@@ -57,7 +63,7 @@
   "tracks": [
     {
       "id": "artTrack",
-      "name": {
+      "displayName": {
         "en-US": "Art Track"
       },
       "description": {
@@ -66,7 +72,7 @@
     },
     {
       "id": "writingTrack",
-      "name": {
+      "displayName": {
         "en-US": "Writing Track"
       },
       "description": {
@@ -74,10 +80,10 @@
       }
     }
   ],
-  "eventTypes": [
+  "sessionTypes": [
     {
       "id": "panel",
-      "name": {
+      "displayName": {
         "en-US": "Panel"
       },
       "description": {
@@ -86,7 +92,7 @@
     },
     {
       "id": "workshop",
-      "name": {
+      "displayName": {
         "en-US": "Workshop"
       },
       "description": {
@@ -95,7 +101,7 @@
     },
     {
       "id": "meetup",
-      "name": {
+      "displayName": {
         "en-US": "Meetup"
       },
       "description": {
@@ -106,75 +112,76 @@
   "labels": [
     {
       "id": "18plus",
-      "name": {
+      "displayName": {
         "en-US": "18+"
       },
       "description": {
         "en-US": "Restricted to attendees age 18 and older."
-      },
-      "category": "rating"
+      }
     },
     {
       "id": "aslInterpretation",
-      "name": {
+      "displayName": {
         "en-US": "ASL Interpretation"
       },
       "description": {
         "en-US": "An ASL interpreter will be present."
-      },
-      "category": "accessibility"
+      }
     },
     {
       "id": "ticketed",
-      "name": {
+      "displayName": {
         "en-US": "Ticketed Event"
       },
       "description": {
         "en-US": "Requires a separate ticket purchase."
-      },
-      "category": "admission"
+      }
     }
   ],
   "venues": [
     {
       "id": "conventionCenter",
-      "name": {
+      "displayName": {
         "en-US": "Furtown Convention Center"
       },
-      "address": {
-        "en-US": "123 Fur Ave, Furville"
-      }
+      "formattedAddress": "123 Fur Ave, Furville, USA"
     },
     {
       "id": "furCafe",
-      "name": {
+      "displayName": {
         "en-US": "Fur Café (Off-Site)"
       },
-      "address": {
-        "en-US": "999 Coffee St, Furville"
-      }
+      "formattedAddress": "999 Coffee St, Furville, USA"
     }
   ],
   "rooms": [
     {
       "id": "mainHall",
-      "name": {
+      "displayName": {
         "en-US": "Main Hall"
       },
       "capacity": 500,
       "venueId": "conventionCenter"
     },
     {
-      "id": "artRoom",
-      "name": {
-        "en-US": "Art Room"
+      "id": "artRoomA",
+      "displayName": {
+        "en-US": "Art Room A"
+      },
+      "capacity": 100,
+      "venueId": "conventionCenter"
+    },
+    {
+      "id": "artRoomB",
+      "displayName": {
+        "en-US": "Art Room B"
       },
       "capacity": 100,
       "venueId": "conventionCenter"
     },
     {
       "id": "backPatio",
-      "name": {
+      "displayName": {
         "en-US": "Back Patio"
       },
       "venueId": "furCafe"
@@ -184,13 +191,17 @@
     {
       "id": "p-001",
       "displayName": "Alofoxx",
-      "socials": [
+      "externalLinks": [
         {
-          "label": "Twitter",
+          "displayName": {
+            "en-US": "Twitter"
+          },
           "url": "https://twitter.example.org/alofoxx"
         },
         {
-          "label": "Website",
+          "displayName": {
+            "en-US": "Website"
+          },
           "url": "https://alofoxx.example.org"
         }
       ],
@@ -199,18 +210,20 @@
     {
       "id": "p-002",
       "displayName": "Alofoxx’s Guest",
-      "socials": [
+      "externalLinks": [
         {
-          "label": "Instagram",
+          "displayName": {
+            "en-US": "Instagram"
+          },
           "url": "https://instagram.example.org/alofoxx"
         }
       ]
     }
   ],
-  "events": [
+  "sessions": [
     {
-      "id": "evt-100",
-      "title": {
+      "id": "s-100",
+      "displayName": {
         "en-US": "Wolf Roundtable"
       },
       "description": {
@@ -220,33 +233,31 @@
         {
           "startTime": "3030-08-01T10:00:00-04:00",
           "endTime": "3030-08-01T11:00:00-04:00",
-          "venueId": "conventionCenter",
-          "roomId": "mainHall"
+          "roomIds": ["mainHall"],
+          "hostIds": ["p-002"]
         },
         {
           "startTime": "3030-08-01T14:00:00-04:00",
           "endTime": "3030-08-01T15:00:00-04:00",
-          "venueId": "conventionCenter",
-          "roomId": "mainHall"
+          "roomIds": ["mainHall"]
         },
         {
           "startTime": "3030-08-02T10:00:00-04:00",
           "endTime": "3030-08-02T11:00:00-04:00",
-          "venueId": "furCafe",
-          "roomId": "backPatio"
+          "roomIds": ["backPatio"]
         }
       ],
       "typeId": "meetup",
-      "trackId": null,
       "labelIds": [],
-      "hostIds": ["p-002"],
-      "allowedMemberships": ["attendee", "sponsor", "superSponsor"],
+      "allowedMembershipLevelIds": ["attendee", "sponsor", "superSponsor"],
       "minAge": 0,
       "ticketed": false,
       "imageBannerUrl": "https://cdn.example.org/event-banners/wolf-roundtable.png",
-      "buttons": [
+      "externalLinks": [
         {
-          "name": "RSVP",
+          "displayName": {
+            "en-US": "RSVP"
+          },
           "url": "https://rsvp.example.org/event/wolf-roundtable"
         }
       ],
@@ -260,8 +271,8 @@
       }
     },
     {
-      "id": "evt-101",
-      "title": {
+      "id": "s-101",
+      "displayName": {
         "en-US": "Painting Techniques"
       },
       "description": {
@@ -271,23 +282,20 @@
         {
           "startTime": "3030-08-01T14:00:00-04:00",
           "endTime": "3030-08-01T16:00:00-04:00",
-          "venueId": "conventionCenter",
-          "roomId": "artRoom",
-          "roomAliasIds": ["100A"]
+          "roomIds": ["artRoomA", "artRoomB"],
+          "hostIds": ["p-001"]
         }
       ],
       "typeId": "workshop",
       "trackId": "artTrack",
       "labelIds": ["aslInterpretation"],
-      "hostIds": ["p-001"],
-      "allowedMemberships": ["attendee", "sponsor", "superSponsor"],
+      "allowedMembershipLevelIds": ["attendee", "sponsor", "superSponsor"],
       "minAge": 0,
-      "ticketed": false,
-      "buttons": []
+      "ticketed": false
     },
     {
-      "id": "evt-102",
-      "title": {
+      "id": "s-102",
+      "displayName": {
         "en-US": "Night Howl Social (18+)"
       },
       "description": {
@@ -297,20 +305,19 @@
         {
           "startTime": "3030-08-01T23:00:00-04:00",
           "endTime": "3030-08-02T01:00:00-04:00",
-          "venueId": "furCafe",
-          "roomId": "backPatio"
+          "roomIds": ["backPatio"]
         }
       ],
       "typeId": "panel",
-      "trackId": null,
       "labelIds": ["18plus", "ticketed"],
-      "hostIds": [],
-      "allowedMemberships": ["attendee", "sponsor", "superSponsor"],
+      "allowedMembershipLevelIds": ["attendee", "sponsor", "superSponsor"],
       "minAge": 18,
       "ticketed": true,
-      "buttons": [
+      "externalLinks": [
         {
-          "name": "Buy Ticket",
+          "displayName": {
+            "en-US": "Buy Ticket"
+          },
           "url": "https://tickets.example.org/event/night-howl"
         }
       ]

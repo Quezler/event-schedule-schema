@@ -1,21 +1,14 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://github.com/Alofoxx/furry-schedule-schema/schema/entity/event.schema.json",
-  "title": "Event",
+  "$id": "https://github.com/FurryApp/event-schedule-schema/schema/entity/session.schema.json",
+  "title": "Session",
   "type": "object",
-  "required": [
-    "id",
-    "title",
-    "timeSlots",
-    "typeId",
-    "allowedMemberships",
-    "ticketed"
-  ],
+  "required": ["id", "displayName", "timeSlots"],
   "properties": {
     "id": {
       "type": "string"
     },
-    "title": {
+    "displayName": {
       "type": "object",
       "patternProperties": {
         "^[a-z]{2}(-[A-Z]{2})?$": {
@@ -35,10 +28,7 @@
       "type": "string"
     },
     "trackId": {
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": "string"
     },
     "labelIds": {
       "type": "array",
@@ -46,13 +36,7 @@
         "type": "string"
       }
     },
-    "hostIds": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
-    "allowedMemberships": {
+    "allowedMembershipLevelIds": {
       "type": "array",
       "items": {
         "type": "string"
@@ -64,45 +48,61 @@
     "ticketed": {
       "type": "boolean"
     },
-    "buttons": {
+    "externalLinks": {
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
-          "name": {
-            "type": "string"
+          "displayName": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-z]{2}(-[A-Z]{2})?$": {
+                "type": "string"
+              }
+            }
           },
           "url": {
             "type": "string",
             "format": "uri"
           }
         },
-        "required": [
-          "name",
-          "url"
-        ]
+        "required": ["displayName", "url"]
       }
+    },
+    "imageThumbnailUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "Optional link to a thumbnail image."
     },
     "imageBannerUrl": {
       "type": "string",
-      "format": "uri"
+      "format": "uri",
+      "description": "Optional link to a larger banner image."
     },
     "timeSlots": {
       "type": "array",
-      "description": "All time/location slots for the event",
+      "description": "All time/location slots for the session",
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["startTime", "endTime", "venueId", "roomId"],
+        "required": ["startTime", "endTime"],
         "properties": {
+          "id": {
+            "type": "string"
+          },
           "startTime": { "type": "string", "format": "date-time" },
           "endTime": { "type": "string", "format": "date-time" },
-          "venueId": { "type": "string" },
-          "roomId": { "type": "string" },
-          "roomAliasIds": {
+          "roomIds": {
             "type": "array",
-            "items": { "type": "string" },
-            "description": "Optional list of alternative room IDs used for this time slot. Useful for events spanning multiple spaces or when multiple room names apply."
+            "items": {
+              "type": "string"
+            }
+          },
+          "hostIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "x-meta": {
             "$ref": "../partials/x-meta.schema.json"

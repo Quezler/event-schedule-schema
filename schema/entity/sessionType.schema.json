@@ -1,17 +1,14 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://github.com/Alofoxx/furry-schedule-schema/schema/entity/eventType.schema.json",
-  "title": "EventType",
+  "$id": "https://github.com/FurryApp/event-schedule-schema/schema/entity/sessionType.schema.json",
+  "title": "SessionType",
   "type": "object",
-  "required": [
-    "id",
-    "name"
-  ],
+  "required": ["id", "displayName"],
   "properties": {
     "id": {
       "type": "string"
     },
-    "name": {
+    "displayName": {
       "type": "object",
       "patternProperties": {
         "^[a-z]{2}(-[A-Z]{2})?$": {

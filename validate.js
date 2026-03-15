@@ -32,7 +32,7 @@ await loadSchemasFromDir(path.join(__dirname, "schema", "partials"));
 await loadSchemasFromDir(path.join(__dirname, "schema", "entity"));
 
 // Compile top-level schema by its $id
-const mainSchemaId = "https://github.com/Alofoxx/furry-schedule-schema/schema/furry-schedule-schema.json";
+const mainSchemaId = "https://github.com/FurryApp/event-schedule-schema/schema/furry-event-schedule-schema.json";
 const validate = ajv.getSchema(mainSchemaId);
 
 if (!validate) {
